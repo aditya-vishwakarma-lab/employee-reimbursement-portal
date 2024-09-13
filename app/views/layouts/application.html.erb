@@ -10,6 +10,14 @@
   </head>
 
   <body>
+  <nav>
+    <% unless controller_name.in?(%w[sessions registrations]) %>
+      <% if user_signed_in? %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </nav>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
