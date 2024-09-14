@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies or /companies.json
   def index
-    @companies = current_user.companies
+    @companies = current_user.companies.includes(employees: :reimbursement_claims)
   end
 
   # GET /companies/1 or /companies/1.json
