@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @reimbursement_claim %>
+
+<div>
+  <%= link_to "Edit this reimbursement claim", edit_reimbursement_claim_path(@reimbursement_claim) %> |
+  <%= link_to "Back to reimbursement claims", reimbursement_claims_path %>
+
+  <%= button_to "Destroy this reimbursement claim", @reimbursement_claim, method: :delete %>
+</div>

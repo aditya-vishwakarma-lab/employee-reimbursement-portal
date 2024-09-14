@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_14_082327) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_14_095538) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -27,6 +27,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_082327) do
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
+  create_table "reimbursement_claims", force: :cascade do |t|
+    t.integer "employee_id", null: false
+    t.text "purpose"
+    t.decimal "amount"
+    t.date "date_of_expenditure"
+    t.string "receipt_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_reimbursement_claims_on_employee_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,4 +52,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_14_082327) do
 
   add_foreign_key "companies", "users"
   add_foreign_key "employees", "companies"
+  add_foreign_key "reimbursement_claims", "employees"
 end

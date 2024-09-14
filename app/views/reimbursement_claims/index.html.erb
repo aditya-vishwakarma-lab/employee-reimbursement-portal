@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Reimbursement claims</h1>
+
+<div id="reimbursement_claims">
+  <% @reimbursement_claims.each do |reimbursement_claim| %>
+    <%= render reimbursement_claim %>
+    <p>
+      <%= link_to "Show this reimbursement claim", reimbursement_claim %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New reimbursement claim", new_reimbursement_claim_path %>

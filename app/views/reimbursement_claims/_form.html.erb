@@ -1,0 +1,42 @@
+<%= form_with(model: reimbursement_claim) do |form| %>
+  <% if reimbursement_claim.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reimbursement_claim.errors.count, "error") %> prohibited this reimbursement_claim from being saved:</h2>
+
+      <ul>
+        <% reimbursement_claim.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :employee_id, style: "display: block" %>
+    <%= form.select :employee_id, options_from_collection_for_select(@employees, :id, :name, @reimbursement_claim.employee_id), {}, { class: 'form-control' } %>
+  </div>
+
+  <div>
+    <%= form.label :purpose, style: "display: block" %>
+    <%= form.text_area :purpose %>
+  </div>
+
+  <div>
+    <%= form.label :amount, style: "display: block" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_expenditure, style: "display: block" %>
+    <%= form.date_field :date_of_expenditure %>
+  </div>
+
+  <div>
+    <%= form.label :receipt_url, style: "display: block" %>
+    <%= form.text_field :receipt_url %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

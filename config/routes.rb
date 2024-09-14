@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reimbursement_claims
   resources :employees
   resources :companies
   get 'home/index'
