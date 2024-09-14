@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :company_id, style: "display: block" %>
-    <%= form.select :company_id, options_from_collection_for_select(@companies, :id, :name, @employee.company_id), {}, { class: 'form-control' } %>
+    <%= form.select :company_id, options_from_collection_for_select(@companies, :id, :name, @employee.company_id), {}, {} %>
   </div>
 
   <div>

@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :employee_id, style: "display: block" %>
-    <%= form.select :employee_id, options_from_collection_for_select(@employees, :id, :name, @reimbursement_claim.employee_id), {}, { class: 'form-control' } %>
+    <%= form.select :employee_id, options_from_collection_for_select(@employees, :id, :name, @reimbursement_claim.employee_id), {}, {} %>
   </div>
 
   <div>
