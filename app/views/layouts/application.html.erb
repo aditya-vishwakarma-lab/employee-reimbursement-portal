@@ -14,6 +14,9 @@
     <% unless controller_name.in?(%w[sessions registrations]) %>
       <% if user_signed_in? %>
         <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+        <%= link_to 'Companies', companies_path %>
+        <%= link_to 'Employees', employees_path %>
+        <%= link_to 'Reimbursement Claims', reimbursement_claims_path %>
       <% end %>
     <% end %>
   </nav>
