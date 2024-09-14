@@ -67,7 +67,7 @@ class ReimbursementClaimsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reimbursement_claim_params
-      params.require(:reimbursement_claim).permit(:employee_id, :purpose, :amount, :date_of_expenditure, :receipt_url)
+      params.require(:reimbursement_claim).permit(:employee_id, :purpose, :amount, :date_of_expenditure, :receipt)
     end
 
     def load_employees

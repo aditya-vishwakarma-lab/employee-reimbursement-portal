@@ -21,7 +21,11 @@
 
   <p>
     <strong>Receipt url:</strong>
-    <%= reimbursement_claim.receipt_url %>
+    <% if reimbursement_claim.receipt.attached? %>
+      <%= link_to "Download Receipt", url_for(reimbursement_claim.receipt), target: "_blank" %>
+    <% else %>
+      <%= 'No receipt uploaded' %>
+    <% end %>
   </p>
 
 </div>
